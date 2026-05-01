@@ -1,14 +1,26 @@
 <script setup lang="ts">
 import type { Character } from '../../types';
+import { useFavoriteStore } from '../store/favoriteStore';
 
-defineProps<{
+const props = defineProps<{
   character: Character;
 }>();
+
+const favoriteStore = useFavoriteStore();
 </script>
 
 <template>
   <div class="character-card">
-    <img :src="character.image" :alt="character.name" loading="lazy" />
+    <div class="image-container">
+      <img :src="character.image" :alt="character.name" loading="lazy" />
+      <button 
+        @click="favoriteStore.toggleFavorite(character)"
+        :class="['fav-btn', { 'is-fav': favoriteStore.isFavorite(character.id) }]"
+        aria-label="Toggle favorite"
+      >
+        ★
+      </button>
+    </div>
     <div class="character-info">
       <h3>{{ character.name }}</h3>
       <p :class="['status', character.status.toLowerCase()]">
@@ -39,10 +51,44 @@ defineProps<{
   transform: translateY(-4px);
 }
 
+.image-container {
+  position: relative;
+  height: 250px;
+}
+
 img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.fav-btn:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.fav-btn.is-fav {
+  color: #ff9800;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .character-info {
