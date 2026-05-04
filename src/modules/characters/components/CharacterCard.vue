@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Character } from '../../types';
+import type { Character } from '../../../types';
 import { useFavoriteStore } from '../store/favoriteStore';
 
 const props = defineProps<{
@@ -43,17 +43,19 @@ const favoriteStore = useFavoriteStore();
   display: flex;
   flex-direction: column;
   color: white;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  width: 280px; /* Smaller width */
 }
 
 .character-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 }
 
 .image-container {
   position: relative;
-  height: 250px;
+  height: 220px; /* Reduced height */
 }
 
 img {

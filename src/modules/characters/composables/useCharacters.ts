@@ -9,28 +9,27 @@ import { characterService } from '../services/characterService';
  */
 export function useCharacters() {
   const characters = ref<Character[]>([]);
-  const isLoading = ref(false);
+  const isLoading = ref(true);
   const error = ref<string | null>(null);
-  const currentPage = ref(1);
-  const totalPages = ref(0);
 
-  const fetchCharacters = async (page: number = 1) => {
+  const fetchCharacters = async () => {
+    if (isLoading.value) return; // Prevent re-fetching
     isLoading.value = true;
     error.value = null;
 
     try {
-      const { results, info } = await characterService.getCharacters(page);
+      // Fetch 20 random characters
+      const results = await characterService.getRandomCharacters(40);
       characters.value = results;
-      totalPages.value = info.pages;
-      currentPage.value = page;
     } catch (e) {
-      error.value = e instanceof Error ? e.message : 'Error desconocido';
+      error.value = e instanceof Error ? e.message : 'Unknown error';
     } finally {
       isLoading.value = false;
     }
   };
 
   onMounted(() => {
+    isLoading.value = false; // Reset from SSR if applicable
     fetchCharacters();
   });
 
@@ -39,9 +38,7 @@ export function useCharacters() {
     characters,
     isLoading,
     error,
-    currentPage,
-    totalPages,
-
+    
     // Actions
     fetchCharacters,
   };

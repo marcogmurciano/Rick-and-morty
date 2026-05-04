@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import type { Character } from '../../types';
+import type { Character } from '../../../types';
 
 /**
  * Store global para gestionar los personajes favoritos.
