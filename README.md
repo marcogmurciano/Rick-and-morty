@@ -6,34 +6,31 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178c6?style=flat&logo=typescript)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=flat&logo=vite)](https://vitejs.dev)
 [![Pinia](https://img.shields.io/badge/Pinia-3.0-ffd859?style=flat)](https://pinia.vuejs.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**Proyecto de aprendizaje para practicar y afianzar conocimientos de Vue.js 3**
+**Learning project to practice and strengthen Vue.js 3 knowledge**
 
 </div>
 
 ---
 
-## Tabla de Contenidos
+## Table of Contents
 
-- [Descripción](#descripción)
+- [Description](#description)
 - [Demo](#demo)
-- [Características](#características)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Conceptos de Vue Aplicados](#conceptos-de-vue-aplicados)
-- [Cómo Ejecutar el Proyecto](#cómo-ejecutar-el-proyecto)
-- [API Utilizada](#api-utilizada)
-- [Posibles Mejoras](#posibles-mejoras)
-- [Licencia](#licencia)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Vue Concepts Applied](#vue-concepts-applied)
+- [How to Run the Project](#how-to-run-the-project)
+- [API Used](#api-used)
 
 ---
 
-## Descripción
+## Description
 
-Este proyecto es un **visualizador de tarjetas de personajes** de la popular serie de animación "Rick and Morty". Fue desarrollado con fines didácticos para practicar y consolidar conocimientos del ecosistema Vue.js.
+This project is a **character card viewer** for the popular animated series "Rick and Morty". It was developed for educational purposes to practice and consolidate knowledge of the Vue.js ecosystem.
 
-La aplicación consume la [Rick and Morty API](https://rickandmortyapi.com/) para obtener información de los personajes y mostrarlos en una interfaz visual atractiva con soporte para marcar favoritos.
+The application consumes the [Rick and Morty API](https://rickandmortyapi.com/) to fetch character information and displays it in an attractive visual interface with favorite support.
 
 ---
 
@@ -45,7 +42,7 @@ La aplicación consume la [Rick and Morty API](https://rickandmortyapi.com/) par
 +----------------------------------------------------------+
 |                                                          |
 |  +------------------+  +------------------+              |
-|  | [Imagen]      ★  |  | [Imagen]      ★  |              |
+|  | [Image]       ★  |  | [Image]       ★  |              |
 |  |                  |  |                  |              |
 |  | Rick Sanchez     |  | Morty Smith      |              |
 |  | ● Alive - Human  |  | ● Alive - Human  |              |
@@ -58,69 +55,69 @@ La aplicación consume la [Rick and Morty API](https://rickandmortyapi.com/) par
 
 ---
 
-## Características
+## Features
 
-- **Listado de Personajes**: Muestra todos los personajes de la serie obtenidos de la API
-- **Tarjetas Interactivas**: Diseño visual con información relevante de cada personaje
-- **Sistema de Favoritos**: Permite marcar personajes como favoritos
-- **Persistencia de Datos**: Los favoritos se guardan en localStorage
-- **Indicador de Estado**: Muestra visualmente si el personaje está vivo, muerto o desconocido
-- **Diseño Responsivo**: Se adapta a diferentes tamaños de pantalla
-- **Loading States**: Manejo de estados de carga y errores
-
----
-
-## Tecnologías Utilizadas
-
-| Tecnología | Versión | Propósito |
-|------------|---------|-----------|
-| **Vue.js** | 3.5 | Framework principal (Composition API) |
-| **TypeScript** | 6.0 | Tipado estático |
-| **Vite** | 8.0 | Herramienta de build y desarrollo |
-| **Pinia** | 3.0 | Gestión de estado global |
-| **Rick and Morty API** | - | Fuente de datos |
-
-### Dependencias de desarrollo
-
-- `@vitejs/plugin-vue` - Plugin de Vite para Vue
-- `@vue/tsconfig` - Configuración de TypeScript para Vue
-- `vue-tsc` - TypeScript checker para archivos Vue
+- **Character List**: Displays all characters from the series fetched from the API
+- **Interactive Cards**: Visual design with relevant information for each character
+- **Favorites System**: Allows marking characters as favorites
+- **Data Persistence**: Favorites are stored in localStorage
+- **Status Indicator**: Visually shows if the character is alive, dead, or unknown
+- **Responsive Design**: Adapts to different screen sizes
+- **Loading States**: Handles loading and error states
 
 ---
 
-## Estructura del Proyecto
+## Technologies Used
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| **Vue.js** | 3.5 | Main framework (Composition API) |
+| **TypeScript** | 6.0 | Static typing |
+| **Vite** | 8.0 | Build tool and development server |
+| **Pinia** | 3.0 | Global state management |
+| **Rick and Morty API** | - | Data source |
+
+### Dev Dependencies
+
+- `@vitejs/plugin-vue` - Vite plugin for Vue
+- `@vue/tsconfig` - TypeScript configuration for Vue
+- `vue-tsc` - TypeScript checker for Vue files
+
+---
+
+## Project Structure
 
 ```
 src/
-├── App.vue                    # Componente raíz de la aplicación
-├── main.ts                    # Punto de entrada de la app
-├── style.css                  # Estilos globales
+├── App.vue                    # Root component of the application
+├── main.ts                    # Application entry point
+├── style.css                  # Global styles
 ├── modules/
-│   └── characters/            # Módulo de personajes
+│   └── characters/            # Characters module
 │       ├── components/
-│       │   └── CharacterCard.vue    # Componente de tarjeta
+│       │   └── CharacterCard.vue    # Card component
 │       ├── composables/
-│       │   └── useCharacters.ts     # Lógica reutilizable
+│       │   └── useCharacters.ts     # Reusable logic
 │       ├── services/
-│       │   └── characterService.ts  # Comunicación con API
+│       │   └── characterService.ts  # API communication
 │       ├── store/
-│       │   └── favoriteStore.ts     # Estado de favoritos (Pinia)
+│       │   └── favoriteStore.ts     # Favorites state (Pinia)
 │       ├── types/
-│       │   └── index.ts             # Tipos TypeScript
+│       │   └── index.ts             # TypeScript types
 │       └── views/
-│           └── CharactersView.vue   # Vista principal
+│           └── CharactersView.vue   # Main view
 └── types/
-    └── index.ts                     # Tipos compartidos
+    └── index.ts                     # Shared types
 ```
 
 ---
 
-## Conceptos de Vue Aplicados
+## Vue Concepts Applied
 
-Este proyecto implementa diversos conceptos fundamentales de Vue.js 3:
+This project implements several fundamental Vue.js 3 concepts:
 
 ### Composition API
-El proyecto utiliza exclusivamente la **Composition API** con la sintaxis `<script setup>`, que es el enfoque moderno y recomendado por el equipo de Vue.
+The project exclusively uses the **Composition API** with `<script setup>` syntax, which is the modern approach recommended by the Vue team.
 
 ```vue
 <script setup lang="ts">
@@ -130,88 +127,88 @@ const double = computed(() => count.value * 2);
 </script>
 ```
 
-### Tipos con TypeScript
-Todo el proyecto está escrito en TypeScript, aprovechando el sistema de tipos para mayor robustez y mejor experiencia de desarrollo.
+### TypeScript Typing
+The entire project is written in TypeScript, leveraging the type system for greater robustness and a better development experience.
 
-### Composables (Composables Functions)
-La lógica de obtención de personajes está encapsulada en un **composable** reusable (`useCharacters.ts`). Los composables son la forma de lógica reutilizable en Vue 3.
+### Composables
+The logic for fetching characters is encapsulated in a reusable **composable** (`useCharacters.ts`). Composables are Vue 3's way of creating reusable logic.
 
 ```typescript
 export function useCharacters() {
   const characters = ref<Character[]>([]);
-  // ... lógica encapsulada
+  // ... encapsulated logic
   return { characters, isLoading, error, fetchCharacters };
 }
 ```
 
-### Pinia (Gestión de Estado)
-Se utiliza **Pinia** como store de estado global para gestionar los personajes favoritos. El proyecto implementa el patrón de "Setup Store", que se asemeja a la escritura de composables.
+### Pinia (State Management)
+**Pinia** is used as the global state store to manage favorite characters. The project implements the "Setup Store" pattern, which resembles writing composables.
 
-### Props y Eventos
-El componente `CharacterCard.vue` recibe datos mediante **props** (`defineProps`) y communicate con el store mediante acciones.
+### Props and Events
+The `CharacterCard.vue` component receives data via **props** (`defineProps`) and communicates with the store via actions.
 
 ### Computed Properties
-Se utilizan **computed properties** para derivar estado (como verificar si un personaje es favorito).
+**Computed properties** are used to derive state (like checking if a character is a favorite).
 
-### Estilos scoped
-Los estilos de cada componente están **scoped** para evitar colisiones de CSS.
+### Scoped Styles
+Each component's styles are **scoped** to avoid CSS collisions.
 
 ---
 
-## Cómo Ejecutar el Proyecto
+## How to Run the Project
 
-### Prerrequisitos
+### Prerequisites
 
-- **Node.js** (versión 18 o superior)
-- **npm** o **yarn**
+- **Node.js** (version 18 or higher)
+- **npm** or **yarn**
 
-### Pasos
+### Steps
 
-1. **Clonar el repositorio**
+1. **Clone the repository**
 
 ```bash
 git clone git@github.com:marcogmurciano/Rick-and-morty.git
 cd Rick-and-morty
 ```
 
-2. **Instalar dependencias**
+2. **Install dependencies**
 
 ```bash
 npm install
 ```
 
-3. **Iniciar el servidor de desarrollo**
+3. **Start the development server**
 
 ```bash
 npm run dev
 ```
 
-4. **Abrir en navegador**
+4. **Open in browser**
 
-Visitar `http://localhost:5173` (el puerto puede variar)
+Visit `http://localhost:5173` (port may vary)
 
-### Scripts Disponibles
+### Available Scripts
 
-| Comando | Descripción |
+| Command | Description |
 |---------|-------------|
-| `npm run dev` | Inicia el servidor de desarrollo |
-| `npm run build` | Compila el proyecto para producción |
-| `npm run preview` | Pre-visualiza la versión de producción |
+| `npm run dev` | Starts the development server |
+| `npm run build` | Builds the project for production |
+| `npm run preview` | Previews the production build |
 
 ---
 
-## API Utilizada
+## API Used
 
 ### Rick and Morty API
 
-- **Endpoint principal**: `https://rickandmortyapi.com/api/character`
-- **Documentación**: [https://rickandmortyapi.com/documentation](https://rickandmortyapi.com/documentation)
+- **Main endpoint**: `https://rickandmortyapi.com/api/character`
+- **Documentation**: [https://rickandmortyapi.com/documentation](https://rickandmortyapi.com/documentation)
 
-La API proporciona:
-- Lista paginada de personajes
-- Información detallada de cada personaje (nombre, estado, especie, ubicación, imagen, etc.)
+The API provides:
+- Paginated list of characters
+- Detailed information for each character (name, status, species, location, image, etc.)
 
-### Datos del Personaje
+### Character Data
 
 ```typescript
 interface Character {
@@ -232,40 +229,8 @@ interface Character {
 
 ---
 
-## Posibles Mejoras
-
-Si deseas continuar desarrollando este proyecto, aquí hay algunas ideas:
-
-- [ ] **Paginación**: Añadir botones para navegar entre páginas de personajes
-- [ ] **Búsqueda**: Implementar filtro por nombre de personaje
-- [ ] **Filtros**: Filtrar por estado (Alive/Dead), especie, género
-- [ ] **Detalle Modal**: Al hacer click en una tarjeta, mostrar más información en un modal
-- [ ] **Tests Unitarios**: Añadir tests con Vitest para los composables y componentes
-- [ ] **Transiciones**: Añadir animaciones con Vue Transition
-- [ ] **Dark/Light Mode**: Implementar modo oscuro/claro
-- [ ] **Rickroll**: Hacer un easter egg divertido
-
----
-
-## Licencia
-
-Este proyecto está bajo la licencia **MIT**. Puedes usarlo, modificarlo y distribuirlo libremente.
-
----
-
-## Recursos de Aprendizaje
-
-Si estás aprendiendo Vue, estos recursos pueden ayudarte:
-
-- [Documentación oficial de Vue 3](https://vuejs.org/guide/)
-- [Vue School](https://vueschool.io/)
-- [Pinia: La store oficial de Vue](https://pinia.vuejs.org/)
-- [Vue Mastery](https://www.vuemastery.com/)
-
----
-
 <div align="center">
 
-**Construido con ❤️ y Vue.js**
+**Built with ❤️ and Vue.js**
 
 </div>
